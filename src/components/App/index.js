@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './images/logo.svg';
 import './app.css';
 
+const panelItems = '%/X789-456+1230.'.split('');
+const panelEls = panelItems.map(el => <button key={el}><span>{el}</span></button>);
+
 class App extends Component {
   render() {
     return (
@@ -18,26 +21,11 @@ class App extends Component {
         </header>
 
         <section className="App-panel">
-          <ul>
-            <li className="highlight">C</li>
-            <li>%</li>
-            <li>/</li>
-            <li>X</li>
-            <li>7</li>
-            <li>8</li>
-            <li>9</li>
-            <li>-</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>+</li>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>0</li>
-            <li>.</li>
-            <li className="highlight">=</li>
-          </ul>
+
+          <button className="active"><span>C</span></button>
+          {panelEls}
+          <button className="active"><span>=</span></button>
+          
         </section>
       </div>
     );
