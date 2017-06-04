@@ -1,0 +1,33 @@
+.App-panel {
+  border-radius: 0 0 10px 10px; }
+
+.App-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap; }
+
+.App-panel li {
+  color: #7c99d6;
+  font-size: 14px;
+  line-height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 0px 15px 0px rgba(60, 108, 222, 0.25);
+  width: 28px;
+  height: 28px;
+  margin: 31px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.App-panel li.highlight {
+  color: #fff;
+  border-radius: 0;
+  border-bottom-right-radius: 20px;
+  background: linear-gradient(270deg, #6d99ff 0%, #3c6cde 100%);
+  font-size: 18px;
+  width: 91px;
+  height: 91px;
+  margin: 0; }
