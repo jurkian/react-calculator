@@ -11,13 +11,13 @@ class App extends Component {
       <div className="App">
         <header>
           <ul className="App-bar-icons">
-            <li></li>
-            <li></li>
-            <li></li>
+            <li></li><li></li><li></li>
           </ul>
 
-          <span className="App-history">33x2</span>
-          <span className="App-result">66</span>
+          <div className="App-results-container">
+            <span className="App-history">33x2</span>
+            <span className="App-result">66</span>
+          </div>
         </header>
 
         <section className="App-panel">
@@ -25,7 +25,7 @@ class App extends Component {
           <button className="active"><span>C</span></button>
           {panelEls}
           <button className="active"><span>=</span></button>
-          
+
         </section>
       </div>
     );

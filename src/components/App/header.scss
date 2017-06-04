@@ -4,8 +4,13 @@
    background: #fff;
    height: 149px;
    box-shadow: 0px 0px 65px 0px rgba(60, 108, 222, 0.25);
-   padding: 16px;
+   padding: 12px 16px 32px;
    border-radius: 10px 10px 0 0;
+   position: relative;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
 .App-bar-icons {
@@ -21,14 +26,23 @@
    }
 }
 
+.App-results-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   margin: 0 18px;
+}
+
 .App-history {
    color:  #d9e3f8;
    font-size: 14px;
-   line-height: 30px;
 }
 
 .App-result {
-   color:  #7c99d6;
+   color: transparent;
    font-size: 72px;
-   line-height: 30px;
+   line-height: 1;
+   margin-bottom: -8px;
+   background: linear-gradient(270deg, #3c6cde 0%, #6d99ff 100%);
+   background-clip: text;
 }
