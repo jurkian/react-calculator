@@ -3,7 +3,12 @@ import logo from './images/logo.svg';
 import './app.css';
 
 const panelItems = '%/X789-456+1230.'.split('');
-const panelEls = panelItems.map(el => <button key={el}><span>{el}</span></button>);
+
+// Get first 10 panel elements
+const panelTopEls = panelItems.filter((el, i) => i <= 10).map(el => <button key={el}><span>{el}</span></button>);
+
+// Get all the rest elements
+const panelBottomEls = panelItems.filter((el, i) => i > 10).map(el => <button key={el}><span>{el}</span></button>);
 
 class App extends Component {
   render() {
@@ -22,9 +27,22 @@ class App extends Component {
 
         <section className="App-panel">
 
+          <div className="App-top-panel">
+
+          </div>
+
           <button className="active"><span>C</span></button>
-          {panelEls}
-          <button className="active"><span>=</span></button>
+          {panelTopEls}
+
+          <div className="App-bottom-panel">
+            <div className="App-bottom-panel-buttons">
+              {panelBottomEls}
+            </div>
+
+            <div className="App-bottom-panel-active">
+              <button className="active"><span>=</span></button>
+            </div>
+          </div>
 
         </section>
       </div>
