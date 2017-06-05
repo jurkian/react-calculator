@@ -1,3 +1,4 @@
+@import "../shared/styles/variables.scss";
 @import "../shared/styles/mixins.scss";
 
 .App-panel {
@@ -6,9 +7,6 @@
    flex-wrap: wrap;
 
    button {
-      color: #7c99d6;
-      font-size: 14px;
-      line-height: 30px;
       border: 0;
       background: transparent;
 
@@ -21,60 +19,43 @@
 
       width: 91px;
       height: 91px;
+   }
 
+   .btn-default {
       span {
+         color: #7c99d6;
+         background:  #fff;
          width: 28px;
          height: 28px;
          margin: 31px;
+         line-height: 2;
          border-radius: 50%;
-         background:  #ffffff;
          box-shadow: 0px 0px 15px 0px rgba(60, 108, 222, 0.25);
       }
+
+      &:hover
+         span {
+            color: #fff;
+            margin: 0;
+            padding: 31px;
+            border-radius: 0;
+            background: linear-gradient(270deg, $blue-darker 0%, $blue-lighter 100%);
+            width: 100%;
+            height: 100%;
+            font-size: 18px;
+            line-height: 1.5;
+         }
    }
 
-   .active, button:hover {
-      span {
+   .btn-active {
+      border-radius: 0 0 20px 0;
+      background: linear-gradient(270deg, $blue-darker 0%, $blue-lighter 100%);
+
+      span { 
+         font-size: 18px;
          color: #fff;
-         border-radius: 0 0 20px 0;
-         background: linear-gradient(270deg, #6d99ff 0%, #3c6cde 100%);
-         width: 100%;
-         height: 100%;
-         padding: 31px;
-         margin: 0;
-      }
-   }
-
-   .active {
-      span { font-size: 18px }
-   }
-
-   button:hover {
-      span {
-         border-radius: 0;
       }
    }
 }
 
-.App-bottom-panel {
-   display: flex;
-}
-
-.App-bottom-panel-buttons {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: flex-end;
-}
-
-.App-bottom-panel-active {
-   display: flex;
-   align-items: center;
-
-   .active {
-      height: 121px;
-
-      span {
-         font-size: 26px;
-         border-radius: 20px 0 0 20px;
-      }
-   }
-}
+@import "bottom-panel.scss";

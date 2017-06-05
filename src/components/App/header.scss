@@ -1,3 +1,4 @@
+@import "../shared/styles/variables.scss";
 @import "../shared/styles/mixins.scss";
 
 .App header {
@@ -19,7 +20,7 @@
    li {
       margin-left: 7px;
       border-radius: 50%;
-      background:  #d9e3f8;
+      background: $gray;
       width: 8px;
       height: 8px;
       display: inline-block;
@@ -34,7 +35,7 @@
 }
 
 .App-history {
-   color:  #d9e3f8;
+   color: $gray;
    font-size: 14px;
 }
 
@@ -43,6 +44,6 @@
    font-size: 72px;
    line-height: 1;
    margin-bottom: -8px;
-   background: linear-gradient(270deg, #3c6cde 0%, #6d99ff 100%);
+   background: linear-gradient(270deg, $blue-darker 0%, $blue-lighter 100%);
    background-clip: text;
 }

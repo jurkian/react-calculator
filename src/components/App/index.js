@@ -5,10 +5,10 @@ import './app.css';
 const panelItems = '%/X789-456+1230.'.split('');
 
 // Get first 10 panel elements
-const panelTopEls = panelItems.filter((el, i) => i <= 10).map(el => <button key={el}><span>{el}</span></button>);
+const panelTopEls = panelItems.filter((el, i) => i <= 10).map(el => <button className="btn-default" key={el}><span>{el}</span></button>);
 
 // Get all the rest elements
-const panelBottomEls = panelItems.filter((el, i) => i > 10).map(el => <button key={el}><span>{el}</span></button>);
+const panelBottomEls = panelItems.filter((el, i) => i > 10).map(el => <button className="btn-default" key={el}><span>{el}</span></button>);
 
 class App extends Component {
   render() {
@@ -31,7 +31,7 @@ class App extends Component {
 
           </div>
 
-          <button className="active"><span>C</span></button>
+          <button className="btn-active"><span>C</span></button>
           {panelTopEls}
 
           <div className="App-bottom-panel">
@@ -40,7 +40,7 @@ class App extends Component {
             </div>
 
             <div className="App-bottom-panel-active">
-              <button className="active"><span>=</span></button>
+              <button className="btn-active"><span>=</span></button>
             </div>
           </div>
 

@@ -1,0 +1,23 @@
+.App-bottom-panel {
+   display: flex;
+}
+
+.App-bottom-panel-buttons {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-end;
+}
+
+.App-bottom-panel-active {
+   display: flex;
+   align-items: center;
+
+   .btn-active {
+      height: 121px;
+      border-radius: 20px 0 0 20px;
+
+      span {
+         font-size: 26px;
+      }
+   }
+}
