@@ -1,0 +1,16 @@
+.Panel-bottom {
+  display: flex; }
+
+.Panel-bottom-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; }
+
+.Panel-bottom-active {
+  display: flex;
+  align-items: center; }
+  .Panel-bottom-active .btn-active {
+    height: 121px;
+    border-radius: 20px 0 0 20px; }
+    .Panel-bottom-active .btn-active span {
+      font-size: 26px; }

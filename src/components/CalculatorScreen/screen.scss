@@ -1,7 +1,7 @@
 @import "../shared/styles/variables.scss";
 @import "../shared/styles/mixins.scss";
 
-.App header {
+.Screen-header {
    background: #fff;
    height: 149px;
    box-shadow: 0px 0px 65px 0px rgba(60, 108, 222, 0.25);
@@ -14,7 +14,7 @@
    justify-content: space-between;
 }
 
-.App-bar-icons {
+.Screen-bar-icons {
    @include reset-ul();
 
    li {
@@ -27,19 +27,19 @@
    }
 }
 
-.App-results-container {
+.Screen-results-container {
    display: flex;
    justify-content: space-between;
    align-items: flex-end;
    margin: 0 18px;
 }
 
-.App-history {
+.Screen-history {
    color: $gray;
    font-size: 14px;
 }
 
-.App-result {
+.Screen-result {
    color: transparent;
    font-size: 72px;
    line-height: 1;
