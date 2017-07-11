@@ -40,10 +40,13 @@ class App extends Component {
 
       } else if (char === '=') {
 
-         // Show total value
-         this.calculateTotal(this.state.history);
+         // If there is anything to calculate
+         if (this.state.history) {
+            // Show total value
+            this.calculateTotal(this.state.history);
 
-         isCalculating = false;
+            isCalculating = false;
+         }
 
       } else if (operators.includes(char)) {
          this.updateHistory(this.state.history + ` ${char} `);
