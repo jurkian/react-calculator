@@ -4,17 +4,17 @@ import './bottom-panel.css';
 
 class CalculatorPanel extends Component {
    constructor(props) {
-      super();
+      super(props);
 
       this.state = { panelItems: props.panelItems };
    }
 
    render() {
       // Get first 10 panel elements
-      const panelTopEls = this.state.panelItems.filter((el, i) => i <= 10).map(el => <PanelItem key={el} value={el} />);
+      const panelTopEls = this.props.panelItems.filter((el, i) => i <= 10).map(el => <PanelItem key={el} value={el} updateHistory={this.props.updateHistory} />);
 
       // Get all the rest elements
-      const panelBottomEls = this.state.panelItems.filter((el, i) => i > 10).map(el => <PanelItem key={el} value={el} />);
+      const panelBottomEls = this.props.panelItems.filter((el, i) => i > 10).map(el => <PanelItem key={el} value={el} updateHistory={this.props.updateHistory} />);
 
       return (
          <section className="Panel">
@@ -37,6 +37,6 @@ class CalculatorPanel extends Component {
    }
 }
 
-const PanelItem = (props) => <button className="btn-default"><span>{props.value}</span></button>;
+const PanelItem = (props) => <button className="btn-default" onClick={props.updateHistory.bind(this, props.value)}><span>{props.value}</span></button>;
 
 export default CalculatorPanel;

@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './screen.css';
 
 class CalculatorScreen extends Component {
+   constructor(props) {
+      super(props);
+   }
+
    render() {
       return (
          <header className="Screen-header">
@@ -10,7 +14,7 @@ class CalculatorScreen extends Component {
             </ul>
 
             <div className="Screen-results-container">
-               <span className="Screen-history">33x2</span>
+               <span className="Screen-history">{this.props.history}</span>
                <span className="Screen-result">66</span>
             </div>
          </header>

@@ -46,4 +46,5 @@
    margin-bottom: -8px;
    background: linear-gradient(270deg, $blue-darker 0%, $blue-lighter 100%);
    background-clip: text;
+   -webkit-background-clip: text;
 }

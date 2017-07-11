@@ -38,4 +38,5 @@
   line-height: 1;
   margin-bottom: -8px;
   background: linear-gradient(270deg, #3c6cde 0%, #6d99ff 100%);
-  background-clip: text; }
+  background-clip: text;
+  -webkit-background-clip: text; }
