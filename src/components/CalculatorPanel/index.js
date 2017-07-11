@@ -11,15 +11,18 @@ class CalculatorPanel extends Component {
 
    render() {
       // Get first 10 panel elements
-      const panelTopEls = this.props.panelItems.filter((el, i) => i <= 10).map(el => <PanelItem key={el} value={el} updateHistory={this.props.updateHistory} />);
+      const panelTopEls = this.props.panelItems.filter((item, i) => i <= 10).map(item => <PanelItem key={item} value={item} updateScreen={this.props.updateScreen} />);
 
       // Get all the rest elements
-      const panelBottomEls = this.props.panelItems.filter((el, i) => i > 10).map(el => <PanelItem key={el} value={el} updateHistory={this.props.updateHistory} />);
+      const panelBottomEls = this.props.panelItems.filter((item, i) => i > 10).map(item => <PanelItem key={item} value={item} updateScreen={this.props.updateScreen} />);
 
       return (
          <section className="Panel">
 
-            <button className="btn-active"><span>C</span></button>
+            <button className="btn-active" onClick={this.props.updateScreen.bind(this, 'C')}>
+               <span>C</span>
+            </button>
+            
             {panelTopEls}
 
             <div className="Panel-bottom">
@@ -27,7 +30,7 @@ class CalculatorPanel extends Component {
                   {panelBottomEls}
                </div>
 
-               <div className="Panel-bottom-active">
+               <div className="Panel-bottom-active" onClick={this.props.updateScreen.bind(this, '=')}>
                   <button className="btn-active"><span>=</span></button>
                </div>
             </div>
@@ -37,6 +40,6 @@ class CalculatorPanel extends Component {
    }
 }
 
-const PanelItem = (props) => <button className="btn-default" onClick={props.updateHistory.bind(this, props.value)}><span>{props.value}</span></button>;
+const PanelItem = props => <button className="btn-default" onClick={props.updateScreen.bind(this, props.value)}><span>{props.value}</span></button>;
 
 export default CalculatorPanel;

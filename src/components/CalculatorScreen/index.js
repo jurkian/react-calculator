@@ -15,7 +15,7 @@ class CalculatorScreen extends Component {
 
             <div className="Screen-results-container">
                <span className="Screen-history">{this.props.history}</span>
-               <span className="Screen-result">66</span>
+               <span className="Screen-result">{this.props.result}</span>
             </div>
          </header>
       );

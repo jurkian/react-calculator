@@ -5,6 +5,7 @@ import CalculatorScreen from '../CalculatorScreen/index';
 import CalculatorPanel from '../CalculatorPanel/index';
 
 const panelItems = '%/X789-456+1230.'.split('');
+const operators = '%/X-+.'.split('');
 
 class App extends Component {
    constructor() {
@@ -14,20 +15,45 @@ class App extends Component {
    }
 
    componentWillMount() {
-      this.updateHistory();      
+      this.updateHistory('33x2');
+      this.updateResult(66);
    }
 
    render() {
       return (
          <div className="App">
-            <CalculatorScreen history={this.state.history} updateHistory={this.updateHistory.bind(this)} />
-            <CalculatorPanel panelItems={panelItems} updateHistory={this.updateHistory.bind(this)} />
+            <CalculatorScreen history={this.state.history} result={this.state.result} updateScreen={this.updateScreen.bind(this)} />
+            <CalculatorPanel panelItems={panelItems} updateScreen={this.updateScreen.bind(this)} />
          </div>
       );
    }
 
+   updateScreen(char) {
+      if (char === 'C') {
+         this.updateHistory('');
+         this.updateResult(0);
+
+      } else if (char === '=') {
+         this.updateHistory('');
+         this.updateResult(66);
+         // ...
+
+      } else if (operators.indexOf(char) > -1) {
+         this.updateHistory(this.state.history + char);
+         // ...
+
+      } else if(char) {
+         this.updateHistory(char);
+         this.updateResult(char);
+      }
+   }
+
    updateHistory(char) {
       this.setState({ history: char });
+   }
+
+   updateResult(number) {
+      this.setState({ result: number });
    }
 }
 
