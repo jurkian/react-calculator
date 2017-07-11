@@ -4,15 +4,15 @@ import './app.css';
 import CalculatorScreen from '../CalculatorScreen/index';
 import CalculatorPanel from '../CalculatorPanel/index';
 
-const panelItems = '%/X789-456+1230.'.split('');
-const operators = '%/X-+';
+const panelItems = '%/x789-456+1230.'.split('');
+const operators = '%/x-+';
 let isCalculating = true;
 
 class App extends Component {
    constructor() {
       super();
 
-      this.state = { history: '', inputValue: 0, total: 0 };
+      this.state = { history: '', inputValue: 0 };
    }
 
    componentWillMount() {
@@ -31,59 +31,44 @@ class App extends Component {
 
    updateScreen(char) {
       if (char === 'C') {
+
          // Clear
          this.updateHistory('');
          this.updateResult(0);
-         this.setState({ total: 0 });
 
          isCalculating = false;
 
       } else if (char === '=') {
+
          // Show total value
-         this.updateHistory('');
-         this.updateResult(parseFloat(this.state.total) + parseFloat(this.state.inputValue));
-         this.setState({ total: 0 });
+         this.calculateTotal(this.state.history);
 
          isCalculating = false;
 
       } else if (operators.includes(char)) {
          this.updateHistory(this.state.history + ` ${char} `);
-
-         // parseFloat(88-2-20);
-
-         switch(char) {
-            case '%':
-               this.setState({ total: parseFloat(this.state.total) % parseFloat(this.state.inputValue) });
-               break;
-
-            case '/':
-               this.setState({ total: parseFloat(this.state.total) / parseFloat(this.state.inputValue) });
-               break;
-
-            case 'X':
-               this.setState({ total: parseFloat(this.state.total) * parseFloat(this.state.inputValue) });
-               break;
-
-            case '-':
-               this.setState({ total: parseFloat(this.state.total) - parseFloat(this.state.inputValue) });
-               break;
-
-            case '+':
-               this.setState({ total: parseFloat(this.state.total) + parseFloat(this.state.inputValue) });
-               break;
-         }
-
          this.updateResult(0);
 
       } else if (char) {
-         this.updateHistory(this.state.history + char);
 
          if (!isCalculating) {
-            this.state.inputValue = 0
+            this.updateResult(0);
             isCalculating = true;
          }
 
-         (this.state.inputValue === 0) ? this.updateResult(char) : this.updateResult(this.state.inputValue + char);
+         // If . is pressed and there is no number, make it '0.'
+         if (char === '.' && this.state.inputValue === 0) {
+            this.updateResult('0.');
+            this.updateHistory(this.state.history + '0.');
+            
+         // If there is 0, replace it with new number
+         // If there is a number, add a new one next to it
+         } else {
+            (this.state.inputValue === 0) ? this.updateResult(char) : this.updateResult(this.state.inputValue + char);
+            this.updateHistory(this.state.history + char);
+         }
+
+
       }
    }
 
@@ -91,8 +76,22 @@ class App extends Component {
       this.setState({ history: char });
    }
 
-   updateResult(number) {
-      this.setState({ inputValue: number });
+   updateResult(value) {
+      this.setState({ inputValue: value });
+   }
+
+   calculateTotal(str) {
+
+      // Replace x with * and remove spaces
+      str = str.replace(/X/g, '*');
+      str = str.replace(/x/g, '*');
+      str = str.replace(/ /g, '');
+
+      // Check for safety (eval)
+      str = str.replace(/[^-()\d/*+%.]/g, '');
+
+      this.updateResult(eval(str).toFixed(3));
+      this.updateHistory('');
    }
 }
 
